@@ -12,18 +12,13 @@ def save_file(code):
     with open("main.py", "w") as f:
         f.write(code)
 
-def git_push():
-    subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "commit", "-m", "AgentR update"])
-    subprocess.run(["git", "push"])
-
 if __name__ == "__main__":
     task = input("What to build: ")
     code = generate_code(task)
-    
-    print("\nGenerated Code:\n", code[:500])  # preview
-    
+
+    print("\n=== GENERATED CODE PREVIEW ===\n")
+    print(code[:500])
+
     save_file(code)
-    git_push()
-    
-    print("✅ Code generated + pushed")
+
+    print("\n✅ Code saved to main.py")
